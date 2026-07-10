@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://eventhive-backend-0q19.onrender.com/api";
+const API_BASE_URL = "eventhive-production-90a1.up.railway.app/api";
 
 function getToken() {
   return localStorage.getItem("eventhive_token");
