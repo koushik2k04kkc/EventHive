@@ -25,7 +25,7 @@ export default function EventDetailPage() {
       setError("");
 
       try {
-        const data = await api.get(`/api/events/${id}`);
+        const data = await api.get(`/events/${id}`);
         setEvent(data?.event || data);
       } catch (err) {
         setError(err.message || "Failed to load event.");
@@ -50,7 +50,7 @@ export default function EventDetailPage() {
     setDeleting(true);
 
     try {
-      await api.delete(`/api/events/${id}`);
+      await api.delete(`/events/${id}`);
       addNotification("Event deleted successfully.", "success");
       navigate("/events");
     } catch (err) {

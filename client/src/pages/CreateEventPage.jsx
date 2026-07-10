@@ -37,7 +37,7 @@ export default function CreateEventPage() {
       setPageLoading(true);
 
       try {
-        const data = await api.get(`/api/events/${editId}`);
+        const data = await api.get(`/events/${editId}`);
         const event = data?.event || data;
 
         setForm({
@@ -156,7 +156,7 @@ export default function CreateEventPage() {
     const formData = new FormData();
     formData.append("file", bannerFile);
 
-    const uploadData = await api.post("/api/upload", formData);
+    const uploadData = await api.post("/upload", formData);
     return uploadData?.url || uploadData?.fileUrl || uploadData?.banner_url || "";
   }
 
@@ -181,8 +181,8 @@ export default function CreateEventPage() {
       };
 
       const data = isEditMode
-        ? await api.put(`/api/events/${editId}`, payload)
-        : await api.post("/api/events", payload);
+        ? await api.put(`/events/${editId}`, payload)
+        : await api.post("/events", payload);
 
       const savedEvent = data?.event || data;
 

@@ -56,7 +56,7 @@ export default function EventsPage() {
           query.set("sort", sort);
         }
 
-        const data = await api.get(`/api/events?${query.toString()}`);
+        const data = await api.get(`/events?${query.toString()}`);
         const eventList = Array.isArray(data) ? data : data?.events || [];
 
         setEvents(eventList);

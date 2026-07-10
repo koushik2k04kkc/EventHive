@@ -5,7 +5,8 @@ export const useSocket = (eventId = null, listeners = {}) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    const socket = io('http://localhost:3000', { transports: ['websocket'] });
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || '';
+    const socket = io(socketUrl, { transports: ['websocket'] });
     socketRef.current = socket;
 
     if (eventId) socket.emit('join_event', { eventId });

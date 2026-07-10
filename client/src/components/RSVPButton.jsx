@@ -29,7 +29,7 @@ export default function RSVPButton({ eventId, currentStatus = "", onChange }) {
     setLoading(true);
 
     try {
-      const data = await api.post(`/api/events/${eventId}/rsvp`, { status });
+      const data = await api.post(`/events/${eventId}/rsvp`, { status });
       addNotification("RSVP updated successfully.", "success");
       onChange?.(data, status);
     } catch (error) {

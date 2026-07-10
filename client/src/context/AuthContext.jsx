@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
     }
 
     try {
-      const data = await api.get("/api/auth/me");
+      const data = await api.get("/auth/me");
       setUser(data?.user || data);
     } catch {
       setUser(null);
@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
   }, [token]);
 
   async function login(email, password) {
-    const data = await api.post("/api/auth/login", { email, password });
+    const data = await api.post("/auth/login", { email, password });
 
     const nextToken = data?.token;
     const nextUser = data?.user;
@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
   }
 
   async function register(payload) {
-    const data = await api.post("/api/auth/register", payload);
+    const data = await api.post("/auth/register", payload);
 
     const nextToken = data?.token;
     const nextUser = data?.user;

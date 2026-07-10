@@ -18,7 +18,7 @@ export default function HomePage() {
   useEffect(() => {
     async function loadEvents() {
       try {
-        const data = await api.get("/api/events?sort=date&limit=6");
+        const data = await api.get("/events?sort=date&limit=6");
         setEvents(Array.isArray(data) ? data : data?.events || []);
       } catch {
         setEvents([]);

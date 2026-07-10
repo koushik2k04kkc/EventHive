@@ -71,7 +71,7 @@ const ProfilePage = () => {
         const formData = new FormData();
         formData.append('image', avatarFile);
         const token = localStorage.getItem('token') || '';
-        const uploadRes = await fetch('http://localhost:3000/api/upload', {
+        const uploadRes = await fetch('/api/upload', {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
