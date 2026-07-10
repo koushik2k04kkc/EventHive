@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+const API_BASE_URL = "https://eventhive-backend-0q19.onrender.com/api";
 
 function getToken() {
   return localStorage.getItem("eventhive_token");
